@@ -11,7 +11,7 @@ accelerator:
 
   # options for the UI
   options:
-  - name: WorkloadName
+  - name: workloadName
     label: "The Name of the Workload"
     inputType: text
     display: true
@@ -75,21 +75,21 @@ engine:
   merge:
     - include: [ "**" ]
       exclude: [ "pom.xml", "config/**", "catalog/**", "README.md"]
-    - include: [ "pom.xml" ]
-      chain:
-      - type: ReplaceText
-        substitutions:
-        - text: tanzu-java-web-app
-          with: "#WorkloadName"
+#     - include: [ "pom.xml" ]
+#       chain:
+#       - type: ReplaceText
+#         substitutions:
+#         - text: tanzu-java-web-app
+#           with: "#workloadName"
     - include: [ "config/workload.yaml" ]
       chain:
       - type: ReplaceText
         substitutions:
         - text: tanzu-java-web-app
-          with: "#WorkloadName"
+          with: "#workloadName"
     - include: [ "catalog/catalog-info.yaml" ]
       chain:
       - type: ReplaceText
         substitutions:
         - text: tanzu-java-web-app
-          with: "#WorkloadName"
+          with: "#workloadName"
