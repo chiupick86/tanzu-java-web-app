@@ -74,8 +74,8 @@ accelerator:
 engine:
   merge:
     - include: [ "**" ]
-      exclude: [ "package.json", "config/**", "catalog/**", "README.md"]
-    - include: [ "package.json" ]
+      exclude: [ "pom.xml", "config/**", "catalog/**", "README.md"]
+    - include: [ "pom.xml" ]
       chain:
       - type: ReplaceText
         substitutions:
