@@ -8,3 +8,64 @@ accelerator:
   - spring
   - web
   - tanzu
+
+  # options for the UI
+  options:
+  - name: includeTap
+    label: "Include TAP deployment resources?"
+    inputType: checkbox
+    dataType: boolean
+    defaultValue: true
+
+  - name: textarea
+    inputType: textarea
+    display: true
+    defaultValue: |
+      Text line 1
+      Text line 2
+
+  - name: checkbox 
+    inputType: checkbox 
+    display: true 
+    dataType: [string]
+    defaultValue: 
+      - value-2
+    choices:
+      - text: Checkbox choice 1
+        value: value-1 
+      - text: Checkbox choice 2
+        value: value-2 
+      - text: Checkbox choice 3
+        value: value-3
+
+  - name: dependsOnCheckbox
+    label: 'depends on checkbox'
+    description: Visibility depends on the checkbox option containing exactly value value-2. 
+    dependsOn:
+      name: checkbox
+      value: [value-2] 
+    defaultValue: text value
+
+  - name: select 
+    inputType: select 
+    display: true 
+    defaultValue: value-2 
+    choices:
+      - text: Select choice 1 
+        value: value-1
+      - text: Select choice 2 
+        value: value-2
+      - text: Select choice 3 
+        value: value-3
+
+  - name: radio 
+    inputType: radio 
+    display: true 
+    defaultValue: value-2 
+    choices:
+      - text: Radio choice 1 
+        value: value-1
+      - text: Radio choice 2 
+        value: value-2
+      - text: Radio choice 3 
+        value: value-3
