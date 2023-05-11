@@ -11,11 +11,12 @@ accelerator:
 
   # options for the UI
   options:
-  - name: includeTap
-    label: "Include TAP deployment resources?"
-    inputType: checkbox
-    dataType: boolean
-    defaultValue: true
+  - name: WorkloadName
+    label: "The Name of the Workload"
+    inputType: text
+    display: true
+    defaultValue: ""
+    required: true
 
   - name: textarea
     inputType: textarea
@@ -79,18 +80,18 @@ engine:
       - type: ReplaceText
         substitutions:
         - text: tanzu-java-web-app
-          with: "#artifactId"
+          with: "#WorkloadName"
     - include: [ "config/workload.yaml" ]
       condition: "#includeTap"
       chain:
       - type: ReplaceText
         substitutions:
         - text: tanzu-java-web-app
-          with: "#artifactId"
+          with: "#WorkloadName"
     - include: [ "catalog/catalog-info.yaml" ]
       condition: "#includeTap"
       chain:
       - type: ReplaceText
         substitutions:
         - text: tanzu-java-web-app
-          with: "#artifactId"
+          with: "#WorkloadName"
