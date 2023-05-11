@@ -74,7 +74,7 @@ accelerator:
 engine:
   merge:
     - include: [ "**" ]
-      exclude: [ "pom.xml", "config/**", "catalog/**", "README.md"]
+      exclude: [ "pom.xml", "config/**", "README.md"]
 #     - include: [ "pom.xml" ]
 #       chain:
 #       - type: ReplaceText
@@ -87,7 +87,7 @@ engine:
         substitutions:
         - text: tanzu-java-web-app
           with: "#workloadName"
-    - include: [ "catalog/catalog-info.yaml" ]
+    - include: [ "catalog-info.yaml" ]
       chain:
       - type: ReplaceText
         substitutions:
