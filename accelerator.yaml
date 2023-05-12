@@ -70,9 +70,14 @@ accelerator:
         value: value-2
       - text: Radio choice 3 
         value: value-3
-
+  imports:
+  - name: java-version
+  
 engine:
   merge:
+    - include: [ "**" ]
+    - type: InvokeFragment
+      reference: java-version
     - include: [ "**" ]
       exclude: [ "pom.xml", "config/**", "README.md"]
 #     - include: [ "pom.xml" ]
