@@ -25,20 +25,6 @@ accelerator:
       Text line 1
       Text line 2
 
-#   - name: javaVersion 
-#     inputType: checkbox 
-#     display: true 
-#     dataType: [string]
-#     defaultValue: 
-#       - 17
-#     choices:
-#       - text: 16
-#         value: '16'
-#       - text: 17
-#         value: '17' 
-#       - text: 18
-#         value: '18'
-
   - name: dependsOnCheckbox
     label: 'depends on checkbox'
     description: Visibility depends on the checkbox option containing exactly value value-2. 
@@ -47,6 +33,7 @@ accelerator:
       value: [value-2] 
     defaultValue: text value
 
+  # Java Version
   - name: javaVersion 
     inputType: select 
     display: true 
@@ -59,6 +46,14 @@ accelerator:
       - text: 18
         value: '18'
 
+# Readiness & Liviness Version
+  - name: stateNess 
+    label: "Include TAP deployment resources?"
+    inputType: checkbox
+    dataType: boolean
+    defaultValue: false
+    
+    
   - name: radio 
     inputType: radio 
     display: true 
@@ -96,7 +91,8 @@ engine:
         substitutions:
         - text: tanzu-java-web-app
           with: "#workloadName"
-          
+
+    # Java Version      
     - include: [ "config/workload.yaml" ]
       chain:
       - type: ReplaceText
@@ -104,3 +100,12 @@ engine:
         substitutions:
           - text: "spec:"
             with: "'spec:\n  build:\n    env:\n    - name: BP_JVM_VERSION\n      value: \"17\"'"
+            
+    # Readiness & Liviness         
+    - include: [ "config/workload.yaml" ]
+      chain:
+      - type: ReplaceText
+        condition: "#stateNess == true"
+        substitutions:
+          - text: "params:"
+            with: "'params:\n  - name:\n    value:\n      httpGet:\n        path: "/livez"\n.       port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
