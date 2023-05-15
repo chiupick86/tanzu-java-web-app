@@ -102,10 +102,10 @@ engine:
             with: "'spec:\n  build:\n    env:\n    - name: BP_JVM_VERSION\n      value: \"17\"'"
             
     # Readiness & Liviness         
-    - include: [ "config/workload.yaml" ]
-      chain:
-      - type: ReplaceText
-        condition: "#stateNess == true"
-        substitutions:
-          - text: "params:"
-            with: "'params:\n  - name:\n    value:\n      httpGet:\n        path: "/livez"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
+#     - include: [ "config/workload.yaml" ]
+#       chain:
+#       - type: ReplaceText
+#         condition: "#stateNess == true"
+#         substitutions:
+#           - text: "params:"
+#             with: "'params:\n  - name:\n    value:\n      httpGet:\n        path: "/livez"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
