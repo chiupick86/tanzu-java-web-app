@@ -25,11 +25,11 @@ accelerator:
     defaultValue: value-2 
     choices:
       - text: 16
-        value: '16'
+        value: 16
       - text: 17
-        value: '17'
+        value: 17
       - text: 18
-        value: '18'
+        value: 18
 
 # Readiness & Liviness Version
   - name: stateNess 
@@ -104,7 +104,6 @@ engine:
           - text: "tanzu-java-web-app"
             with: "#workloadName"        
       - type: ReplaceText
-        condition: "#javaVersion == '17'"
         substitutions:
-          - text: "spec:"
-            with: "'spec:\n  build:\n    env:\n    - name: BP_JVM_VERSION\n      value: \"17\"'"
+          - text: "javaVersion"
+            with: "#javaVersion"
