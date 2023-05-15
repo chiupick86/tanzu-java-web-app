@@ -28,16 +28,16 @@ accelerator:
   - name: javaVersion 
     inputType: checkbox 
     display: true 
-    dataType: [integer]
+    dataType: [string]
     defaultValue: 
       - 17
     choices:
       - text: 16
-        value: 16
+        value: '16'
       - text: 17
-        value: 17 
+        value: '17' 
       - text: 18
-        value: 18
+        value: '18'
 
   - name: dependsOnCheckbox
     label: 'depends on checkbox'
