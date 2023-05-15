@@ -108,4 +108,4 @@ engine:
         condition: "#stateNess == true"
         substitutions:
           - text: "params:"
-            with: "'params:\n  - name:\n    value:\n      httpGet:\n        path: "/livez"\n.       port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
+            with: "'params:\n  - name:\n    value:\n      httpGet:\n        path: "/livez"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
