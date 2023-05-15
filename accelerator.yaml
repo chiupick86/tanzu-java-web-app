@@ -107,5 +107,5 @@ engine:
       - type: ReplaceText
         condition: "#stateNess == true"
         substitutions:
-          - text: "'params:'"
+          - text: "params:"
             with: "'params:\n  - name:\n    value:\n      httpGet:\n        path: "/livez"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
