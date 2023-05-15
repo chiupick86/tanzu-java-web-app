@@ -74,8 +74,8 @@ accelerator:
 engine:
   merge:
     - include: [ "**" ]
-    - type: InvokeFragment
-      reference: java-version
+#     - type: InvokeFragment
+#       reference: java-version
     - include: [ "**" ]
       exclude: [ "pom.xml", "config/**", "README.md"]
 #     - include: [ "pom.xml" ]
