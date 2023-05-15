@@ -22,14 +22,14 @@ accelerator:
   - name: javaVersion 
     inputType: select 
     display: true 
-    defaultValue: value-2 
+    defaultValue: 17 
     choices:
       - text: 16
-        value: 16
+        value: '16'
       - text: 17
-        value: 17
+        value: '17'
       - text: 18
-        value: 18
+        value: '18'
 
 # Readiness & Liviness Version
   - name: stateNess 
