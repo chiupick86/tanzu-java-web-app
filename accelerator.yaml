@@ -81,7 +81,7 @@ engine:
       chain:
       - type: ReplaceText
         substitutions:
-        - text: tanzu-java-web-app
+        - text: "tanzu-java-web-app"
           with: "#workloadName"
 
     # Java Version      
