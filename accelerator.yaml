@@ -47,17 +47,11 @@ accelerator:
         value: '18'
 
 # Readiness & Liviness Version
-  - name: liveNess 
-    label: "Do you need LiveNess?"
+  - name: stateNess 
+    label: "Do you need Self-HealthCheck for the Application?"
     inputType: checkbox
     dataType: boolean
     defaultValue: false
-    
-#   - name: readiNess 
-#     label: "Do you need Readiness?"
-#     inputType: checkbox
-#     dataType: boolean
-#     defaultValue: false
     
   - name: radio 
     inputType: radio 
@@ -110,15 +104,8 @@ engine:
     - include: [ "config/workload.yaml" ]
       chain:
       - type: ReplaceText
-        condition: "#liveNess == true"
+        condition: "#stateNess == true"
         substitutions:
           - text: "params:"
             with: "'params:\n  - name: livenessProbe\n    value:\n      httpGet:\n        path: \"/livez\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n  - name: readinessProbe\n    value:\n      httpGet:\n        path: \"/readyz\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
             
-#     - include: [ "config/workload.yaml" ]
-#       chain:
-#       - type: ReplaceText
-#         condition: "#readiNess == true"
-#         substitutions:
-#           - text: "params:"
-#             with: "'params:\n  - name: readinessProbe\n    value:\n      httpGet:\n        path: \"/readyz\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
