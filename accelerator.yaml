@@ -25,19 +25,19 @@ accelerator:
       Text line 1
       Text line 2
 
-  - name: javaVersion 
-    inputType: checkbox 
-    display: true 
-    dataType: [string]
-    defaultValue: 
-      - 17
-    choices:
-      - text: 16
-        value: '16'
-      - text: 17
-        value: '17' 
-      - text: 18
-        value: '18'
+#   - name: javaVersion 
+#     inputType: checkbox 
+#     display: true 
+#     dataType: [string]
+#     defaultValue: 
+#       - 17
+#     choices:
+#       - text: 16
+#         value: '16'
+#       - text: 17
+#         value: '17' 
+#       - text: 18
+#         value: '18'
 
   - name: dependsOnCheckbox
     label: 'depends on checkbox'
@@ -47,17 +47,17 @@ accelerator:
       value: [value-2] 
     defaultValue: text value
 
-  - name: select 
+  - name: javaVersion 
     inputType: select 
     display: true 
     defaultValue: value-2 
     choices:
-      - text: Select choice 1 
-        value: value-1
-      - text: Select choice 2 
-        value: value-2
-      - text: Select choice 3 
-        value: value-3
+      - text: 16
+        value: '16'
+      - text: 17
+        value: '17'
+      - text: 18
+        value: '18'
 
   - name: radio 
     inputType: radio 
