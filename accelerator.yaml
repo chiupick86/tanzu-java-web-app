@@ -77,7 +77,7 @@ engine:
 #         substitutions:
 #         - text: tanzu-java-web-app
 #           with: "#workloadName"
-    - include: [ "catalog-info.yaml", "config/**" ]
+    - include: [ "catalog-info.yaml", "config/workload.yaml" ]
       chain:
       - type: ReplaceText
         substitutions:
