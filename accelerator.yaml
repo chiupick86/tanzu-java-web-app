@@ -84,14 +84,14 @@ engine:
 #         - text: "tanzu-java-web-app"
 #           with: "#workloadName"
 
-    # Java Version      
-    - include: [ "config/workload.yaml" ]
-      chain:
-      - type: ReplaceText
-        condition: "#javaVersion == '17'"
-        substitutions:
-          - text: "spec:"
-            with: "'spec:\n  build:\n    env:\n    - name: BP_JVM_VERSION\n      value: \"17\"'"
+#     # Java Version      
+#     - include: [ "config/workload.yaml" ]
+#       chain:
+#       - type: ReplaceText
+#         condition: "#javaVersion == '17'"
+#         substitutions:
+#           - text: "spec:"
+#             with: "'spec:\n  build:\n    env:\n    - name: BP_JVM_VERSION\n      value: \"17\"'"
             
     # ReadiNess & liveNess         
     - include: [ "config/workload.yaml" ]
@@ -103,4 +103,7 @@ engine:
             with: "'params:\n  - name: livenessProbe\n    value:\n      httpGet:\n        path: \"/livez\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n  - name: readinessProbe\n    value:\n      httpGet:\n        path: \"/readyz\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n'"
           - text: "tanzu-java-web-app"
             with: "#workloadName"        
- 
+        condition: "#javaVersion == '17'"
+        substitutions:
+          - text: "spec:"
+            with: "'spec:\n  build:\n    env:\n    - name: BP_JVM_VERSION\n      value: \"17\"'"
