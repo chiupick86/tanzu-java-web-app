@@ -18,21 +18,6 @@ accelerator:
     defaultValue: ""
     required: true
 
-  - name: textarea
-    inputType: textarea
-    display: true
-    defaultValue: |
-      Text line 1
-      Text line 2
-
-  - name: dependsOnCheckbox
-    label: 'depends on checkbox'
-    description: Visibility depends on the checkbox option containing exactly value value-2. 
-    dependsOn:
-      name: checkbox
-      value: [value-2] 
-    defaultValue: text value
-
   # Java Version
   - name: javaVersion 
     inputType: select 
@@ -53,17 +38,25 @@ accelerator:
     dataType: boolean
     defaultValue: false
     
-  - name: radio 
-    inputType: radio 
-    display: true 
-    defaultValue: value-2 
-    choices:
-      - text: Radio choice 1 
-        value: value-1
-      - text: Radio choice 2 
-        value: value-2
-      - text: Radio choice 3 
-        value: value-3
+#   - name: dependsOnCheckbox
+#     label: 'depends on checkbox'
+#     description: Self Health Check . 
+#     dependsOn:
+#       name: stateNess
+#       value: true 
+#     defaultValue: false
+
+#   - name: radio 
+#     inputType: radio 
+#     display: true 
+#     defaultValue: value-2 
+#     choices:
+#       - text: Radio choice 1 
+#         value: value-1
+#       - text: Radio choice 2 
+#         value: value-2
+#       - text: Radio choice 3 
+#         value: value-3
 
 engine:
   merge:
