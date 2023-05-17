@@ -20,8 +20,7 @@ accelerator:
 
   - name: nameSpace
     description: 'Which NameSpace(Environment) you want to deploy?'
-    inputType: checkbox
-    dataType: [string]
+    inputType: select
     defaultValue:
       - tap-dev
     choices:
