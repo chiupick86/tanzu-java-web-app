@@ -12,14 +12,14 @@ accelerator:
   # options for the UI
   options:
   - name: workloadName
-    label: "The Name of the Workload"
+    label: "The Name of Workload"
     inputType: text
     display: true
     defaultValue: ""
     required: true
 
   - name: nameSpace
-    description: 'Which NameSpace(Environment) you want to deploy?'
+    description: 'Which NameSpace(Environment) you want to deploy the Workload?'
     inputType: select
     defaultValue: "tap-dev"
     choices:
@@ -53,14 +53,14 @@ accelerator:
 
 # Readiness & Liviness Version
   - name: stateNess 
-    label: "Do you need Self-HealthCheck(Readiness & Liviness Probe) for the Application?"
+    label: "Do you need Self-HealthCheck(Readiness & Liviness Probe) for the Workload?"
     inputType: checkbox
     dataType: boolean
     defaultValue: false
 
 # Need PV or not
   - name: needPv 
-    label: "Do you need Persistent Volume for the Application?"
+    label: "Do you need Persistent Volume for the Workload?"
     inputType: checkbox
     dataType: boolean
     defaultValue: false
