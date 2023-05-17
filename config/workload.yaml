@@ -8,7 +8,9 @@ metadata:
 spec:
   build:
     env:
-      - name: BP_JVM_VERSION
+    - name: BP_MAVEN_BUILD_ARGUMENTS
+      value: -Dmaven.test.skip=testOrNot
+    - name: BP_JVM_VERSION
         value: "javaVersion"
   params:
   - name: annotations
