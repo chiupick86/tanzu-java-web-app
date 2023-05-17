@@ -19,17 +19,29 @@ accelerator:
     required: true
 
   # Java Version
+#   - name: javaVersion 
+#     inputType: select 
+#     display: true 
+#     defaultValue: 17 
+#     choices:
+#       - text: 16
+#         value: '16'
+#       - text: 17
+#         value: '17'
+#       - text: 18
+#         value: '18'
+        
   - name: javaVersion 
-    inputType: select 
+    inputType: radio 
     display: true 
     defaultValue: 17 
     choices:
       - text: 16
-        value: '16'
+        value: 16
       - text: 17
-        value: '17'
+        value: 17
       - text: 18
-        value: '18'
+        value: 18
 
 # Need PV or not
   - name: testWhenBuild 
