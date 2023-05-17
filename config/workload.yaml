@@ -9,7 +9,7 @@ spec:
   build:
     env:
     - name: BP_MAVEN_BUILD_ARGUMENTS
-      value: -Dmaven.test.skip=testOrNot
+      value: -Dmaven.test.skip=false
     - name: BP_JVM_VERSION
         value: "javaVersion"
   params:
