@@ -18,18 +18,21 @@ accelerator:
     defaultValue: ""
     required: true
 
-  # Java Version
-#   - name: javaVersion 
-#     inputType: select 
-#     display: true 
-#     defaultValue: 17 
-#     choices:
-#       - text: 16
-#         value: '16'
-#       - text: 17
-#         value: '17'
-#       - text: 18
-#         value: '18'
+  - name: nameSpace
+    description: 'Which NameSpace(Environment) you want to deploy?'
+    inputType: checkbox
+    dataType: [string]
+    defaultValue:
+      - tap-dev
+    choices:
+      - text: tap-dev
+        value: "tap-dev"
+      - text: tap-sit
+        value: "tap-sit"
+      - text: tap-uat
+        value: "tap-uat"
+      - text: tap-prod
+        value: "tap-prod"
         
   - name: javaVersion 
     inputType: radio 
@@ -63,27 +66,6 @@ accelerator:
     inputType: checkbox
     dataType: boolean
     defaultValue: false
-    
-    
-#   - name: dependsOnCheckbox
-#     label: 'depends on checkbox'
-#     description: Self Health Check . 
-#     dependsOn:
-#       name: stateNess
-#       value: true 
-#     defaultValue: false
-
-#   - name: radio 
-#     inputType: radio 
-#     display: true 
-#     defaultValue: value-2 
-#     choices:
-#       - text: Radio choice 1 
-#         value: value-1
-#       - text: Radio choice 2 
-#         value: value-2
-#       - text: Radio choice 3 
-#         value: value-3
 
 engine:
   merge:
@@ -140,7 +122,12 @@ engine:
         substitutions:
           - text: "env:"
             with: "'env:\n    - name: BP_MAVEN_BUILD_ARGUMENTS\n      value: -Dmaven.test.skip=true'" 
-           
+
+      - type: ReplaceText
+        substitutions:
+          - text: "ns"
+            with: "#nameSpace"
+            
       - type: ReplaceText
         substitutions:
           - text: "tanzu-java-web-app"
