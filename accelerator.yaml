@@ -52,7 +52,6 @@ accelerator:
     dataType: boolean
     defaultValue: false
     
-testWhenBuild    
     
 #   - name: dependsOnCheckbox
 #     label: 'depends on checkbox'
