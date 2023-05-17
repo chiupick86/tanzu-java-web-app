@@ -21,8 +21,7 @@ accelerator:
   - name: nameSpace
     description: 'Which NameSpace(Environment) you want to deploy?'
     inputType: select
-    defaultValue:
-      - "tap-dev"
+    defaultValue: "tap-dev"
     choices:
       - text: tap-dev
         value: "tap-dev"
@@ -124,7 +123,7 @@ engine:
 
       - type: ReplaceText
         substitutions:
-          - text: "ns"
+          - text: "nameSpace"
             with: "#nameSpace"
             
       - type: ReplaceText
