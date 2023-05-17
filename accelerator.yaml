@@ -31,6 +31,13 @@ accelerator:
       - text: 18
         value: '18'
 
+# Need PV or not
+  - name: testWhenBuild 
+    label: "Testing while executing maven build?"
+    inputType: checkbox
+    dataType: boolean
+    defaultValue: false
+
 # Readiness & Liviness Version
   - name: stateNess 
     label: "Do you need Self-HealthCheck(Readiness & Liviness Probe) for the Application?"
@@ -44,6 +51,8 @@ accelerator:
     inputType: checkbox
     dataType: boolean
     defaultValue: false
+    
+testWhenBuild    
     
 #   - name: dependsOnCheckbox
 #     label: 'depends on checkbox'
@@ -114,7 +123,13 @@ engine:
         substitutions:
           - text: "params:"
             with: "'params:\n  - name: livenessProbe\n    value:\n      httpGet:\n        path: \"/livez\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n  - name: readinessProbe\n    value:\n      httpGet:\n        path: \"/readyz\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"'"
-            
+
+      - type: ReplaceText
+        condition: "#testWhenBuild == true"
+        substitutions:
+          - text: "env:"
+            with: "'env:\n    - name: BP_MAVEN_BUILD_ARGUMENTS\n      value: -Dmaven.test.skip=true\n'" 
+           
       - type: ReplaceText
         substitutions:
           - text: "tanzu-java-web-app"
