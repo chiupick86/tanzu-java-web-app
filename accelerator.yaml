@@ -139,7 +139,7 @@ engine:
         condition: "#testWhenBuild == true"
         substitutions:
           - text: "false"
-            with: "true" 
+            with: "#testWhenBuild" 
            
       - type: ReplaceText
         substitutions:
