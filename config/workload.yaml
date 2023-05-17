@@ -13,6 +13,13 @@ spec:
     - name: BP_JVM_VERSION
         value: "javaVersion"
   params:
+  - name: buildServiceBindings
+    value:
+    - apiVersion: v1
+      kind: Secret
+      name: settings-xml
+  - name: gitops_ssh_secret
+    value: https-ca-credentials
   - name: annotations
     value:
       autoscaling.knative.dev/minScale: "1"
