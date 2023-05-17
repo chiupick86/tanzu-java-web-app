@@ -22,7 +22,7 @@ accelerator:
     description: 'Which NameSpace(Environment) you want to deploy?'
     inputType: select
     defaultValue:
-      - tap-dev
+      - "tap-dev"
     choices:
       - text: tap-dev
         value: "tap-dev"
