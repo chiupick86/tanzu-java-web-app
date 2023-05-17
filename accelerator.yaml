@@ -34,7 +34,7 @@ accelerator:
   - name: javaVersion 
     inputType: radio 
     display: true 
-    defaultValue: 17 
+    defaultValue: '17' 
     choices:
       - text: 16
         value: '16'
