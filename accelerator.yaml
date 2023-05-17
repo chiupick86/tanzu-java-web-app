@@ -107,7 +107,7 @@ engine:
         condition: "#needPv == true"
         substitutions:
           - text: "params:"
-            with: "'params:\n  - name: volumes\n  value:\n  - name: tap-registry\n    secret:\n      secretName: tap-registry\n  - name: volumeMounts\n    value:\n    - mountPath: /tmp/tap-registry\n      name: tap-registry'"
+            with: "'params:\n  - name: volumes\n    value:\n    - name: tap-registry\n      secret:\n        secretName: tap-registry\n  - name: volumeMounts\n    value:\n    - mountPath: /tmp/tap-registry\n      name: tap-registry'"
 
       - type: ReplaceText
         condition: "#stateNess == true"
