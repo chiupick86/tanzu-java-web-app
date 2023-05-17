@@ -138,8 +138,8 @@ engine:
       - type: ReplaceText
         condition: "#testWhenBuild == true"
         substitutions:
-          - text: "false"
-            with: "#testWhenBuild" 
+          - text: "env:"
+            with: "'env:\n    - name: BP_MAVEN_BUILD_ARGUMENTS\n      value: -Dmaven.test.skip=true\n'" 
            
       - type: ReplaceText
         substitutions:
