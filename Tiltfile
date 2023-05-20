@@ -1,10 +1,10 @@
-SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='harbor2.lab.local/my-project/ootb-supply-chain')
+SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='harbor.mike.lab/my-project-ootb/ootb-supply-chain')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
 NAMESPACE = os.getenv("NAMESPACE", default='tap-dev')
 OUTPUT_TO_NULL_COMMAND = os.getenv("OUTPUT_TO_NULL_COMMAND", default=' > /dev/null ')
 
 k8s_custom_deploy(
-    'tanzu-java-web-app-2',
+    'workloadName',
     apply_cmd="tanzu apps workload apply -f config/workload.yaml --debug --live-update" +
                " --local-path " + LOCAL_PATH +
                " --source-image " + SOURCE_IMAGE +
@@ -20,6 +20,6 @@ k8s_custom_deploy(
     ]
 )
 
-k8s_resource('tanzu-java-web-app-2', port_forwards=["8080:8080"],
-            extra_pod_selectors=[{'serving.knative.dev/service': 'tanzu-java-web-app-2'}])
+k8s_resource('workloadName', port_forwards=["8080:8080"],
+            extra_pod_selectors=[{'serving.knative.dev/service': 'workloadName'}])
 allow_k8s_contexts("tkc-01-admin@tkc-01")
