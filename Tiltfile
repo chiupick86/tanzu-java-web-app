@@ -11,7 +11,7 @@ k8s_custom_deploy(
                " --namespace " + NAMESPACE +
                " --yes " +
                OUTPUT_TO_NULL_COMMAND +
-               " && kubectl get workload tanzu-java-web-app-2 --namespace " + NAMESPACE + " -o yaml",
+               " && kubectl get workload workloadName --namespace " + NAMESPACE + " -o yaml",
     delete_cmd="tanzu apps workload delete -f config/workload.yaml --namespace " + NAMESPACE + " --yes",
     deps=['pom.xml', './target/classes'],
     container_selector='workload',
