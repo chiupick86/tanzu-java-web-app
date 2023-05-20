@@ -101,7 +101,7 @@ engine:
 #             with: "'spec:\n  build:\n    env:\n    - name: BP_JVM_VERSION\n      value: \"17\"'"
             
     # ReadiNess & liveNess         
-    - include: [ "config/workload.yaml" ]
+    - include: [ "config/workload.yaml","Tiltfile" ]
       chain:
       - type: ReplaceText
         condition: "#needPv == true"
