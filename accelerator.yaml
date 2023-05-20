@@ -128,7 +128,7 @@ engine:
             
       - type: ReplaceText
         substitutions:
-          - text: "tanzu-java-web-app"
+          - text: "workloadName"
             with: "#workloadName"
             
       - type: ReplaceText
