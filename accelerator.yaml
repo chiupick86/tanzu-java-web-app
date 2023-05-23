@@ -63,8 +63,7 @@ accelerator:
     dependsOn:
       name: stateNess
       value: true
-    defaultValue: 8082
-
+    defaultValue: "8082"
 
 # Need PV or not
   - name: needPv 
@@ -121,7 +120,10 @@ engine:
         condition: "#stateNess == true"
         substitutions:
           - text: "params:"
-            with: "'params:\n  - name: livenessProbe\n    value:\n      httpGet:\n        path: \"/livez\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n  - name: readinessProbe\n    value:\n      httpGet:\n        path: \"/readyz\"\n        port: \"8082\"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"'"
+            with: "'params:\n  - name: livenessProbe\n    value:\n      httpGet:\n        path: \"/livez\"\n        port: dependsOnStateness\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n  - name: readinessProbe\n    value:\n      httpGet:\n        path: \"/readyz\"\n        port: dependsOnStateness"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"'"
+        substitutions:
+          - text: "dependsOnStateness"
+            with: "#dependsOnStateness"
 
       - type: ReplaceText
         condition: "#testWhenBuild == true"
