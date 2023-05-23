@@ -121,7 +121,6 @@ engine:
         substitutions:
           - text: "params:"
             with: "'params:\n  - name: livenessProbe\n    value:\n      httpGet:\n        path: \"/livez\"\n        port: dependsOnStateness\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"\n  - name: readinessProbe\n    value:\n      httpGet:\n        path: \"/readyz\"\n        port: dependsOnStateness"\n      initialDelaySeconds: \"5\"\n      timeoutSeconds: \"1\"'"
-        substitutions:
           - text: "dependsOnStateness"
             with: "#dependsOnStateness"
 
