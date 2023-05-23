@@ -57,6 +57,14 @@ accelerator:
     inputType: checkbox
     dataType: boolean
     defaultValue: false
+    
+  - name: dependsOnStateness
+    description: Visibility depends on the checkbox2 option containing a checked value value-3 (Checkbox2 choice 3).
+    dependsOn:
+      name: stateNess
+      value: true
+    defaultValue: 8082
+
 
 # Need PV or not
   - name: needPv 
