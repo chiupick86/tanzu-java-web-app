@@ -44,6 +44,47 @@ accelerator:
       - text: 18
         value: '18'
 
+  - name: cpuLimit
+    description: 'CPU Limit?'
+    inputType: select
+    defaultValue: "1"
+    choices:
+      - text: 1 core
+        value: "1"
+      - text: 0.5 core
+        value: "0.5"
+
+  - name: memLimit
+    description: 'Memory Limit'
+    inputType: select
+    defaultValue: "1Gi"
+    choices:
+      - text: 1Gi
+        value: "1Gi"
+      - text: 2Gi
+        value: "2Gi"
+
+        
+  - name: cpuRequest
+    description: 'CPU Request?'
+    inputType: select
+    defaultValue: "500m"
+    choices:
+      - text: 500m
+        value: "500m"
+      - text: 250m
+        value: "250m"
+        
+  - name: memRequest
+    description: 'Memory Request?'
+    inputType: select
+    defaultValue: "40Mi"
+    choices:
+      - text: 40Mi
+        value: "40Mi"
+      - text: 80Mi
+        value: "80Mi"
+
 # Need PV or not
   - name: testWhenBuild 
     label: "Testing while executing maven build?"
@@ -130,6 +171,26 @@ engine:
           - text: "dependsOnStateness"
             with: "#dependsOnStateness"
 
+      - type: ReplaceText
+        substitutions:
+          - text: "cpuLimit"
+            with: "#cpuLimit"
+
+      - type: ReplaceText
+        substitutions:
+          - text: "memLimit"
+            with: "#memLimit"
+
+      - type: ReplaceText
+        substitutions:
+          - text: "cpuRequest"
+            with: "#cpuRequest"
+
+      - type: ReplaceText
+        substitutions:
+          - text: "memRequest"
+            with: "#memRequest"
+            
       - type: ReplaceText
         condition: "#testWhenBuild == true"
         substitutions:
